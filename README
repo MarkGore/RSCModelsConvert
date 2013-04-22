@@ -1,1 +1,11 @@
-TESTER
+Convert RSC Models to X3D format
+
+convert x3d PATH TO URL
+
+Inserting models into the cache
+
+insert MODELNAME PATHTOMODEL
+
+export all rsc models to ob3
+
+exportall FOLDERPATH
