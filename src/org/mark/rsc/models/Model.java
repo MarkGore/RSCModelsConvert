@@ -1,9 +1,7 @@
-package org.mark.rsc.cache;
+package org.mark.rsc.models;
 
 import java.util.Vector;
 
-import org.mark.rsc.models.obj.Triangle;
-import org.mark.rsc.models.obj.Vertice;
 
 public class Model {
 

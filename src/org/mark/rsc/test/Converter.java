@@ -1,9 +1,9 @@
-package org.mark.rsc.models;
+package org.mark.rsc.test;
 
 import java.io.File;
 
-import org.mark.rsc.cache.ModelLoader;
-import org.mark.rsc.cache.Models;
+import org.mark.rsc.models.ModelLoader;
+import org.mark.rsc.models.Models;
 import org.mark.rsc.utils.DataUtils;
 import org.mark.rsc.utils.Type;
 import org.mark.rsc.utils.Utils;

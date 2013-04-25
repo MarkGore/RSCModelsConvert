@@ -1,4 +1,4 @@
-package org.mark.rsc.cache;
+package org.mark.rsc.models;
 
 public class ModelNames {
 

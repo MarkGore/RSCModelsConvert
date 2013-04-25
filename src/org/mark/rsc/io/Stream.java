@@ -1,4 +1,4 @@
-package org.mark.rsc.bzip;
+package org.mark.rsc.io;
 
 public final class Stream {
 

@@ -2,7 +2,7 @@ package org.mark.rsc.utils;
 
 import java.util.ArrayList;
 
-import org.mark.rsc.cache.ModelNames;
+import org.mark.rsc.models.ModelNames;
 
 public class Utils {
 	private static ArrayList<ModelNames> modelNames = new ArrayList<ModelNames>();

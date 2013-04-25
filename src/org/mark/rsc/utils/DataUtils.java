@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
-import org.mark.rsc.bzip.CBZip2OutputStream;
+import org.mark.rsc.io.CBZip2OutputStream;
 
 public class DataUtils {
 

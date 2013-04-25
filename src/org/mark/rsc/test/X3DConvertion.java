@@ -1,4 +1,4 @@
-package org.mark.rsc.models;
+package org.mark.rsc.test;
 
 import java.awt.Color;
 import java.io.BufferedReader;
@@ -10,8 +10,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.mark.rsc.models.obj.Triangle;
-import org.mark.rsc.models.obj.Vertice;
+import org.mark.rsc.models.Triangle;
+import org.mark.rsc.models.Vertice;
+
 
 public class X3DConvertion {
 
@@ -98,16 +99,16 @@ public class X3DConvertion {
 								}
 							}
 							if (texture) {
-								triangles.get(pos).texture = (int) color[count];
+								triangles.get(pos).setTexture((int) color[count]);
 							} else {
-								triangles.get(pos).texture = triangles
+								triangles.get(pos).setTexture(triangles
 										.get(pos)
 										.getRsColor(
 												new Color(
 														(int) (color[0] * 255.0f),
 														(int) (color[1] * 255.0f),
 														(int) (color[2] * 255.0f),
-														(int) (color[3] * 255.0f)));
+														(int) (color[3] * 255.0f))));
 							}
 							count = 0;
 							pos++;
@@ -149,27 +150,27 @@ public class X3DConvertion {
 			dos.writeChar(t);
 
 			for (int i = 0; i < v; i++) {
-				dos.writeChar((int) (vertices.get(i).x));
+				dos.writeChar((int) (vertices.get(i).getX()));
 			}
 
 			for (int i = 0; i < v; i++) {
-				dos.writeChar((int) (vertices.get(i).y));
+				dos.writeChar((int) (vertices.get(i).getY()));
 			}
 
 			for (int i = 0; i < v; i++) {
-				dos.writeChar((int) (vertices.get(i).z));
+				dos.writeChar((int) (vertices.get(i).getZ()));
 			}
 
 			for (int i = 0; i < t; i++) {
-				dos.writeByte(triangles.get(i).points.length);
+				dos.writeByte(triangles.get(i).getPoints().length);
 			}
 
 			for (int i = 0; i < t; i++) {
-				dos.writeChar(triangles.get(i).texture);
+				dos.writeChar(triangles.get(i).getTexture());
 			}
 
 			for (int i = 0; i < t; i++) {
-				dos.writeChar(triangles.get(i).texture);
+				dos.writeChar(triangles.get(i).getTexture());
 			}
 
 			for (int i = 0; i < t; i++) {
@@ -178,12 +179,12 @@ public class X3DConvertion {
 
 			if (v < 256) {
 				for (int i = 0; i < t; i++) {
-					for (float s : triangles.get(i).points)
+					for (float s : triangles.get(i).getPoints())
 						dos.writeByte((int) s);
 				}
 			} else {
 				for (int i = 0; i < t; i++) {
-					for (float s : triangles.get(i).points)
+					for (float s : triangles.get(i).getPoints())
 						dos.writeChar((int) s);
 				}
 			}

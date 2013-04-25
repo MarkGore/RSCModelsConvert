@@ -1,18 +1,18 @@
-package org.mark.rsc.cache;
+package org.mark.rsc.models;
 
 import java.io.IOException;
 
-import org.mark.rsc.bzip.Archive;
-import org.mark.rsc.bzip.DataOperations;
+import org.mark.rsc.io.DataOperations;
+import org.mark.rsc.io.archive.NamedArchive;
 import org.mark.rsc.utils.DataUtils;
 
 public class ModelLoader {
-	private static Archive archive;
+	private static NamedArchive archive;
 	public static Models[] models;
 
 	public ModelLoader() {
 		try {
-			setArchive(new Archive(DataUtils.readFile("./res/cache/models36.jag")));
+			setArchive(new NamedArchive(DataUtils.readFile("./res/cache/models36.jag")));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -94,11 +94,11 @@ public class ModelLoader {
 
 	}
 
-	public void setArchive(Archive archive) {
+	public void setArchive(NamedArchive archive) {
 		ModelLoader.archive = archive;
 	}
 
-	public static Archive getArchive() {
+	public static NamedArchive getArchive() {
 		return archive;
 	}
 

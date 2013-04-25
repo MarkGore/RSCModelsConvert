@@ -1,4 +1,4 @@
-package org.mark.rsc.bzip;
+package org.mark.rsc.io;
 
 import java.math.BigInteger;
 import java.util.zip.CRC32;

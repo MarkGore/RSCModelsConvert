@@ -1,4 +1,4 @@
-package org.mark.rsc.bzip;
+package org.mark.rsc.io;
 /*
  * The Apache Software License, Version 1.1
  *
@@ -63,6 +63,7 @@ package org.mark.rsc.bzip;
 
 import java.io.OutputStream;
 import java.io.IOException;
+
 
 /**
  * An output stream that compresses into the BZip2 format (without the file

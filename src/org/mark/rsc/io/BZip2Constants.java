@@ -1,4 +1,4 @@
-package org.mark.rsc.bzip;
+package org.mark.rsc.io;
 /*
  * The Apache Software License, Version 1.1
  *

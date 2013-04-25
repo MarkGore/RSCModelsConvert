@@ -1,12 +1,12 @@
-package org.mark.rsc.models;
+package org.mark.rsc.test;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
-import org.mark.rsc.cache.Model;
-import org.mark.rsc.cache.Models;
+import org.mark.rsc.models.Model;
+import org.mark.rsc.models.Models;
 import org.mark.rsc.utils.Type;
 
 public class OB3Converter {
@@ -22,7 +22,7 @@ public class OB3Converter {
 				writer.println("  <Shape>");
 				writer.print("   <IndexedFaceSet coordIndex=\"");
 				for (int i = 0; i < model.getTriangles().size(); i++) {
-					for (float tri : model.getTriangle(i).points) {
+					for (float tri : model.getTriangle(i).getPoints()) {
 						writer.print((int)tri + " ");
 					}
 					writer.print("-1 ");
@@ -31,15 +31,15 @@ public class OB3Converter {
 				writer.println();
 				writer.print("	<Coordinate point=\"");
 				for (int i = 0; i < model.getVertices().size(); i++) {
-					writer.print((model.getVert(i).x) + " "
-							+ (model.getVert(i).y) + " "
-							+ (model.getVert(i).z) + " ");
+					writer.print((model.getVert(i).getX()) + " "
+							+ (model.getVert(i).getY()) + " "
+							+ (model.getVert(i).getZ()) + " ");
 				}
 				writer.print("\"/>");
 				writer.println();
 				writer.print("	<ColorRGBA color=\"");
 				for (int i = 0; i < model.getTriangles().size(); i++) {
-					if (model.getTriangle(i).texture < 0)
+					if (model.getTriangle(i).getTexture() < 0)
 						writer.print(model.getTriangle(i).getRGBColor()
 								.getRed()
 								/ 255.0f
@@ -53,10 +53,10 @@ public class OB3Converter {
 								+ model.getTriangle(i).getRGBColor().getAlpha()
 								/ 255.0f + " ");
 					else {
-						writer.print(model.getTriangle(i).texture + " "
-								+ model.getTriangle(i).texture + " "
-								+ model.getTriangle(i).texture + " "
-								+ model.getTriangle(i).texture + " ");
+						writer.print(model.getTriangle(i).getTexture() + " "
+								+ model.getTriangle(i).getTexture() + " "
+								+ model.getTriangle(i).getTexture() + " "
+								+ model.getTriangle(i).getTexture() + " ");
 					}
 				}
 				writer.print("\"/>");

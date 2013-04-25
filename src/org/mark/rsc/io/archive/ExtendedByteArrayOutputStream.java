@@ -1,4 +1,4 @@
-package org.mark.rsc.bzip;
+package org.mark.rsc.io.archive;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

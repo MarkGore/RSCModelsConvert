@@ -1,12 +1,14 @@
-package org.mark.rsc.bzip;
+package org.mark.rsc.io.archive;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
 
+import org.mark.rsc.io.ByteArray;
+import org.mark.rsc.io.Stream;
 import org.mark.rsc.utils.DataUtils;
 
-public class Archive {
+public class NamedArchive {
 
 	public ArrayList<ByteArray> files;
 	public byte finalBuffer[];
@@ -17,7 +19,7 @@ public class Archive {
 	public ArrayList<Integer> startOffsets;
 	public boolean compressedAsWhole;
 
-	public Archive(byte abyte0[]) {
+	public NamedArchive(byte abyte0[]) {
 		files = new ArrayList<ByteArray>();
 		identifiers = new ArrayList<Integer>();
 		decompressedSizes = new ArrayList<Integer>();

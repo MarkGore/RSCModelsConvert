@@ -1,9 +1,9 @@
-package org.mark.rsc.bzip;
+package org.mark.rsc.io.archive;
 
 public class BZip2Decompressor {
 
 	public static final int MAX_CODE_LEN = 23;
-	private static final BZip2BlockEntry currentBlock = new BZip2BlockEntry();
+	private static final BZIP2Archive currentBlock = new BZIP2Archive();
 
 	public BZip2Decompressor() {
 	}
@@ -11,7 +11,7 @@ public class BZip2Decompressor {
 	public static int decompressBuffer(byte outputBuffer[],
 			int decompressedSize, byte inputBuffer[], int compressedSize,
 			int offset) {
-		BZip2BlockEntry bzip2blockentry = currentBlock;
+		BZIP2Archive bzip2blockentry = currentBlock;
 		currentBlock.inputBuffer = inputBuffer;
 		currentBlock.offset = offset;
 		currentBlock.outputBuffer = outputBuffer;
@@ -30,13 +30,13 @@ public class BZip2Decompressor {
 		return decompressedSize;
 	}
 
-	private static void method226(BZip2BlockEntry blockEntry) {
+	private static void method226(BZIP2Archive blockEntry) {
 		byte byte4 = blockEntry.aByte573;
 		int i = blockEntry.anInt574;
 		int j = blockEntry.anInt584;
 		int k = blockEntry.anInt582;
-		BZip2BlockEntry _tmp = blockEntry;
-		int ai[] = BZip2BlockEntry.ll8;
+		BZIP2Archive _tmp = blockEntry;
+		int ai[] = BZIP2Archive.ll8;
 		int l = blockEntry.anInt581;
 		byte abyte0[] = blockEntry.outputBuffer;
 		int i1 = blockEntry.anInt569;
@@ -144,24 +144,24 @@ public class BZip2Decompressor {
 		blockEntry.anInt574 = i;
 		blockEntry.anInt584 = j;
 		blockEntry.anInt582 = k;
-		BZip2BlockEntry _tmp1 = blockEntry;
-		BZip2BlockEntry.ll8 = ai;
+		BZIP2Archive _tmp1 = blockEntry;
+		BZIP2Archive.ll8 = ai;
 		blockEntry.anInt581 = l;
 		blockEntry.outputBuffer = abyte0;
 		blockEntry.anInt569 = i1;
 		blockEntry.decompressedSize = j1;
 	}
 
-	private static void readBlock(BZip2BlockEntry blockEntry) {
+	private static void readBlock(BZIP2Archive blockEntry) {
 		int minLens_zt = 0;
 		int limit_zt[] = null;
 		int base_zt[] = null;
 		int perm_zt[] = null;
 		blockEntry.blockSize100k = 1;
-		BZip2BlockEntry _tmp = blockEntry;
-		if (BZip2BlockEntry.ll8 == null) {
-			BZip2BlockEntry _tmp1 = blockEntry;
-			BZip2BlockEntry.ll8 = new int[blockEntry.blockSize100k * 0x186a0];
+		BZIP2Archive _tmp = blockEntry;
+		if (BZIP2Archive.ll8 == null) {
+			BZIP2Archive _tmp1 = blockEntry;
+			BZIP2Archive.ll8 = new int[blockEntry.blockSize100k * 0x186a0];
 		}
 		for (boolean flag19 = true; flag19; flag19 = blockEntry.anInt584 == blockEntry.anInt601 + 1
 				&& blockEntry.anInt574 == 0) {
@@ -357,8 +357,8 @@ public class BZip2Decompressor {
 					byte ch = blockEntry.seqToUnseq[blockEntry.yy[blockEntry.anIntArray593[0]] & 0xff];
 					blockEntry.unzftab[ch & 0xff] += j6;
 					while (j6 > 0) {
-						BZip2BlockEntry _tmp2 = blockEntry;
-						BZip2BlockEntry.ll8[i6] = ch & 0xff;
+						BZIP2Archive _tmp2 = blockEntry;
+						BZIP2Archive.ll8[i6] = ch & 0xff;
 						i6++;
 						j6--;
 					}
@@ -413,8 +413,8 @@ public class BZip2Decompressor {
 						}
 					}
 					blockEntry.unzftab[blockEntry.seqToUnseq[tmp & 0xff] & 0xff]++;
-					BZip2BlockEntry _tmp3 = blockEntry;
-					BZip2BlockEntry.ll8[i6] = blockEntry.seqToUnseq[tmp & 0xff] & 0xff;
+					BZIP2Archive _tmp3 = blockEntry;
+					BZIP2Archive.ll8[i6] = blockEntry.seqToUnseq[tmp & 0xff] & 0xff;
 					i6++;
 					if (groupPos == 0) {
 						lastShadow++;
@@ -451,18 +451,18 @@ public class BZip2Decompressor {
 			}
 
 			for (int l2 = 0; l2 < i6; l2++) {
-				BZip2BlockEntry _tmp4 = blockEntry;
-				byte byte7 = (byte) (BZip2BlockEntry.ll8[l2] & 0xff);
-				BZip2BlockEntry _tmp5 = blockEntry;
-				BZip2BlockEntry.ll8[blockEntry.anIntArray585[byte7 & 0xff]] |= l2 << 8;
+				BZIP2Archive _tmp4 = blockEntry;
+				byte byte7 = (byte) (BZIP2Archive.ll8[l2] & 0xff);
+				BZIP2Archive _tmp5 = blockEntry;
+				BZIP2Archive.ll8[blockEntry.anIntArray585[byte7 & 0xff]] |= l2 << 8;
 				blockEntry.anIntArray585[byte7 & 0xff]++;
 			}
 
-			BZip2BlockEntry _tmp6 = blockEntry;
-			blockEntry.anInt581 = BZip2BlockEntry.ll8[blockEntry.origPtr] >> 8;
+			BZIP2Archive _tmp6 = blockEntry;
+			blockEntry.anInt581 = BZIP2Archive.ll8[blockEntry.origPtr] >> 8;
 			blockEntry.anInt584 = 0;
-			BZip2BlockEntry _tmp7 = blockEntry;
-			blockEntry.anInt581 = BZip2BlockEntry.ll8[blockEntry.anInt581];
+			BZIP2Archive _tmp7 = blockEntry;
+			blockEntry.anInt581 = BZIP2Archive.ll8[blockEntry.anInt581];
 			blockEntry.anInt582 = (byte) (blockEntry.anInt581 & 0xff);
 			blockEntry.anInt581 >>= 8;
 			blockEntry.anInt584++;
@@ -472,15 +472,15 @@ public class BZip2Decompressor {
 
 	}
 
-	private static byte getUByte(BZip2BlockEntry blockEntry) {
+	private static byte getUByte(BZIP2Archive blockEntry) {
 		return (byte) getBits(8, blockEntry);
 	}
 
-	private static byte getBit(BZip2BlockEntry blockEntry) {
+	private static byte getBit(BZIP2Archive blockEntry) {
 		return (byte) getBits(1, blockEntry);
 	}
 
-	private static int getBits(int i, BZip2BlockEntry blockEntry) {
+	private static int getBits(int i, BZIP2Archive blockEntry) {
 		int j;
 		do {
 			if (blockEntry.anInt577 >= i) {
@@ -503,7 +503,7 @@ public class BZip2Decompressor {
 		return j;
 	}
 
-	private static void createMaps(BZip2BlockEntry blockEntry) {
+	private static void createMaps(BZIP2Archive blockEntry) {
 		blockEntry.inUseOffset = 0;
 		for (int i = 0; i < 256; i++) {
 			if (blockEntry.inUse[i]) {

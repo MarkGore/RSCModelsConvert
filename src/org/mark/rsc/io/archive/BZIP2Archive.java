@@ -1,6 +1,6 @@
-package org.mark.rsc.bzip;
+package org.mark.rsc.io.archive;
 
-public class BZip2BlockEntry {
+public class BZIP2Archive {
 
 	byte inputBuffer[];
 	int offset;
@@ -38,9 +38,9 @@ public class BZip2BlockEntry {
 	final int limit[][] = new int[6][258];
 	final int base[][] = new int[6][258];
 	final int perm[][] = new int[6][258];
-	final int minLens[] = new int[6];
+	final int[] minLens = new int[6];
 	int anInt601;
 
-	BZip2BlockEntry() {
+	BZIP2Archive() {
 	}
 }

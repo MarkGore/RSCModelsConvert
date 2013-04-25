@@ -1,9 +1,7 @@
-package org.mark.rsc.cache;
+package org.mark.rsc.models;
 
 import java.util.Vector;
 
-import org.mark.rsc.models.obj.Triangle;
-import org.mark.rsc.models.obj.Vertice;
 
 public class Models {
 
@@ -20,7 +18,7 @@ public class Models {
 	public int[] vert_x;
 	public int name;
 
-	public Model buildRSCModel() {
+	public final Model buildRSCModel() {
 		Model model = new Model();
 		Vector<Vertice> vert = new Vector<Vertice>();
 		Vector<Triangle> triangles = new Vector<Triangle>();
